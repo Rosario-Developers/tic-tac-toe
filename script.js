@@ -3,8 +3,10 @@ const board = document.querySelector('.game');
 
 const handleClick = (event) => {
   const square = event.target;
-  square.innerHTML = 'X';
-  console.log(square);
+  const position = square?.id;
+  if (position) {
+    square.innerHTML = 'X';
+  }
 };
 
 board.addEventListener('click', handleClick);
@@ -12,19 +14,23 @@ board.addEventListener('click', handleClick);
 const X = 'X';
 const O = 'O';
 
-// squares.forEach((square) => {
-//   square.addEventListener('click', handleClick);
-// });
-
-class Board {
+class Game {
   constructor() {
     this.board = [
-      [0, 0, 0],
-      [0, 0, 0],
-      [0, 0, 0],
+      ['', '', ''],
+      ['', '', ''],
+      ['', '', ''],
     ];
     this.token = 'x';
   }
 
-  // handleClick(event) {}
+  handleClick(event) {
+    const square = event.target;
+    const position = square?.id;
+    if (position) {
+      square.innerHTML = 'X';
+    }
+  }
 }
+
+const game = new Game();
