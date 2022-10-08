@@ -15,17 +15,7 @@ body {
   cursor: pointer;
   color: #30c4bc;
   font-size: 50px;
-  font-family: 'Archivo Black', sans-serif;
-  font-family: 'Atomic Age', cursive;
-  font-family: 'Bebas Neue', cursive;
-  font-family: 'Codystar', cursive;
-  font-family: 'Concert One', cursive;
-  font-family: 'Courgette', cursive;
-  font-family: 'Lobster', cursive;
-  font-family: 'Major Mono Display', monospace;
-  font-family: 'Noto Sans Avestan', sans-serif;
-  font-family: 'Qwitcher Grypen', cursive;
-  font-family: 'Zen Dots', cursive;
+  font-family: sans-serif;
 }
 
 .board-row {
