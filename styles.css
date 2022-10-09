@@ -50,3 +50,24 @@ body {
 #o {
   background-color: #f2b237;
 }
+
+#reset {
+  width: 40px;
+  height: 40px;
+  background-color: #a8bec9;
+}
+
+#turn {
+  width: 100px;
+  height: 40px;
+}
+
+#xo {
+  width: 100px;
+  height: 40px;
+  background-color: transparent;
+}
+
+.circle {
+  color: #f2b237;
+}
