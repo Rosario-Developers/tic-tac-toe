@@ -82,10 +82,11 @@ body {
   display: flex;
   margin: 10px;
   font-size: 32px;
+  cursor: pointer;
 }
 
 .cross-circle .circle {
-  margin-left: 0.5rem;
+  margin-left: 0.7rem;
 }
 
 .circle {
