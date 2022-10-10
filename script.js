@@ -16,7 +16,8 @@ class Game {
     this.currentPlayer = 'X';
     this.htmlSquares = htmlSquares;
     this.htmlBoard = htmlBoard;
-    this.htmlBoard.addEventListener('click', this.handleClick.bind(this));
+    this.clickHandler = this.handleClick.bind(this);
+    this.htmlBoard.addEventListener('click', this.clickHandler);
   }
 
   handleClick(event) {
@@ -84,7 +85,7 @@ class Game {
   }
 
   showWinner(winner) {
-    this.htmlBoard.removeEventListener('click', this.handleClick);
+    this.htmlBoard.removeEventListener('click', this.clickHandler);
     this.htmlSquares.forEach((square) => {
       const id = square.id;
       const player = this.currentPlayer === 'X' ? 'cross' : 'circle';
