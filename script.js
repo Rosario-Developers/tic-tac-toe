@@ -1,23 +1,28 @@
-const squares = document.querySelectorAll('.square');
-const board = document.querySelector('.board');
-const turn = document.getElementById('turn');
-
 class Game {
-  /**
-   * @param {HTMLElement[]} htmlSquares
-   * @param {HTMLElement} htmlBoard
-   */
-  constructor(htmlSquares, htmlBoard) {
+  constructor() {
     this.board = [
       ['', '', ''],
       ['', '', ''],
       ['', '', ''],
     ];
     this.currentPlayer = 'X';
-    this.htmlSquares = htmlSquares;
-    this.htmlBoard = htmlBoard;
+    this.htmlSquares = document.querySelectorAll('.square');
+    this.htmlBoard = document.querySelector('.board');
+    this.htmlTurn = document.getElementById('turn');
+    this.htmlReset = document.getElementById('reset');
+    this.endGameModal = document.getElementById('myModal');
+    this.modalWinnerText = document.getElementById('winner');
+    this.modalNextRoundButton = document.getElementById('next-round-btn');
+    this.closeModalButton = document.getElementsByClassName('close')[0];
     this.clickHandler = this.handleClick.bind(this);
+    this.resetHandler = this.reset.bind(this);
+    this.closeModalHandler = this.closeModal.bind(this);
     this.htmlBoard.addEventListener('click', this.clickHandler);
+    this.htmlReset.addEventListener('click', this.resetHandler);
+    this.modalNextRoundButton.addEventListener('click', this.resetHandler);
+    this.modalNextRoundButton.addEventListener('click', this.closeModalHandler);
+    this.closeModalButton.addEventListener('click', this.closeModalHandler);
+    this.htmlTurn.innerHTML = this.currentPlayer;
   }
 
   handleClick(event) {
@@ -29,7 +34,12 @@ class Game {
       this.board[positionX][positionY] = this.currentPlayer;
       this.checkWinner();
       this.togglePlayer();
+      this.htmlTurn.innerHTML = this.currentPlayer;
     }
+  }
+
+  closeModal() {
+    this.endGameModal.style.display = 'none';
   }
 
   togglePlayer() {
@@ -93,6 +103,8 @@ class Game {
         square.classList.add(`${player}-winner`);
       }
     });
+    this.modalWinnerText.innerHTML = this.currentPlayer;
+    this.endGameModal.style.display = 'block';
   }
 
   checkWinner() {
@@ -102,23 +114,28 @@ class Game {
       this.showWinner(winner);
     }
   }
+
+  reset() {
+    this.board = [
+      ['', '', ''],
+      ['', '', ''],
+      ['', '', ''],
+    ];
+    this.currentPlayer = 'X';
+    this.htmlSquares.forEach((square) => {
+      square.innerHTML = '';
+      square.classList.remove(
+        'cross',
+        'circle',
+        'cross-winner',
+        'circle-winner'
+      );
+    });
+    this.htmlBoard.addEventListener('click', this.clickHandler);
+  }
 }
 
-const game = new Game(squares, board);
-
-turn.innerHTML = `${game.currentPlayer} turn`;
-
-var modal = document.getElementById('myModal');
-var openModalButton = document.getElementById('myBtn');
-var closeModalButton = document.getElementsByClassName('close')[0];
-
-openModalButton.onclick = () => {
-  modal.style.display = 'block';
-};
-
-closeModalButton.onclick = () => {
-  modal.style.display = 'none';
-};
+const game = new Game();
 
 window.onclick = (event) => {
   if (event.target == modal) {

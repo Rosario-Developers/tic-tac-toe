@@ -16,8 +16,13 @@
             <div class="cross">X</div>
             <div class="circle">O</div>
           </div>
-          <div class="turn-info" id="turn"></div>
-          <div class="reset-btn" id="reset"></div>
+          <div class="turn-info"><span id="turn"></span>&nbsp;Turn</div>
+          <div class="reset-btn" id="reset">
+            <img
+              src="./public/images/refresh-svgrepo-com.svg"
+              alt="reset-icon"
+            />
+          </div>
         </div>
 
         <div class="board">
@@ -55,11 +60,6 @@
       </div>
     </div>
 
-    <!-- Trigger/Open The Modal -->
-    <button id="myBtn" style="position: absolute; top: 0; right: 0">
-      Open Modal
-    </button>
-
     <!-- The Modal -->
     <div id="myModal" class="modal">
       <!-- Modal content -->
@@ -68,7 +68,9 @@
           <h4 class="youwon">You Won!</h4>
           <h1 class="xwin"><span id="winner"></span> TAKES THE ROUND</h1>
           <span class="modal-btn close">Quit</span>
-          <span class="modal-btn next-round">Next round</span>
+          <span class="modal-btn next-round" id="next-round-btn"
+            >Next round</span
+          >
         </div>
       </div>
     </div>
