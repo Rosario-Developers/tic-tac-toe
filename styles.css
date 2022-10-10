@@ -37,6 +37,8 @@ body {
   margin: 10px;
   filter: drop-shadow(0 6px 0rem #00000048);
   display: inline-block;
+  text-align: center;
+  padding-top: 0.5rem;
 }
 
 #ties {
@@ -63,6 +65,7 @@ body {
   height: 40px;
   display: flex;
   margin: 10px;
+  font-size: 32px;
 }
 
 .cross-circle .circle {
@@ -73,6 +76,90 @@ body {
   color: #f2b237;
 }
 
+.circle-info {
+  background-color: #f2b237;
+}
+
 .cross {
   color: #30c4bc;
+}
+
+.cross-info {
+  background-color: #30c4bc;
+}
+
+.cross-winner {
+  background-color: #30c4bc;
+  color: #192a32;
+}
+
+.circle-winner {
+  background-color: #f2b237;
+  color: #192a32;
+}
+
+/* The Modal (background) */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0, 0, 0); /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+}
+
+/* The Close Button */
+.modal-btn {
+  color: black;
+  width: 100px;
+  height: 40px;
+  margin: 10px;
+  padding: 8px 16px;
+  border-radius: 12px;
+}
+
+.modal-btn.close {
+  background-color: #a8bec9;
+  filter: drop-shadow(0 6px 0rem #00000048);
+}
+
+.modal-btn.next-round {
+  background-color: #f2b237;
+  filter: drop-shadow(0 6px 0rem #00000048);
+}
+
+.close:hover,
+.next-round:hover,
+.close:focus,
+.next-round:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* Modal Content */
+.modal-content {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+  padding: 20px 0;
+  background-color: #1f3540;
+  margin: auto;
+  width: 100%;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  text-align: center;
+}
+
+.owin {
+  color: #f2b237;
+}
+.xwin {
+  color: #30c4bc;
+}
+.youwon {
+  color: #a8bec9;
 }

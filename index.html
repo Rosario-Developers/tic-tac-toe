@@ -39,9 +39,36 @@
         </div>
 
         <div class="board-row">
-          <div class="box" id="x"></div>
-          <div class="box" id="ties"></div>
-          <div class="box" id="o"></div>
+          <div class="box cross-info" id="cross">
+            <div>X (You)</div>
+            <div>0</div>
+          </div>
+          <div class="box ties-info" id="ties">
+            <div>Ties</div>
+            <div>0</div>
+          </div>
+          <div class="box circle-info" id="circle">
+            <div>O (CPU)</div>
+            <div>0</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Trigger/Open The Modal -->
+    <button id="myBtn" style="position: absolute; top: 0; right: 0">
+      Open Modal
+    </button>
+
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+      <!-- Modal content -->
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="youwon">You Won!</h4>
+          <h1 class="xwin"><span id="winner"></span> TAKES THE ROUND</h1>
+          <span class="modal-btn close">Quit</span>
+          <span class="modal-btn next-round">Next round</span>
         </div>
       </div>
     </div>

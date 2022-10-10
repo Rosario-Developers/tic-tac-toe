@@ -3,13 +3,20 @@ const board = document.querySelector('.board');
 const turn = document.getElementById('turn');
 
 class Game {
-  constructor() {
+  /**
+   * @param {HTMLElement[]} htmlSquares
+   * @param {HTMLElement} htmlBoard
+   */
+  constructor(htmlSquares, htmlBoard) {
     this.board = [
       ['', '', ''],
       ['', '', ''],
       ['', '', ''],
     ];
     this.currentPlayer = 'X';
+    this.htmlSquares = htmlSquares;
+    this.htmlBoard = htmlBoard;
+    this.htmlBoard.addEventListener('click', this.handleClick.bind(this));
   }
 
   handleClick(event) {
@@ -39,7 +46,7 @@ class Game {
         this.board[i][1] === this.board[i][2] &&
         this.board[i][0]
       ) {
-        return true;
+        return [`${i}0`, `${i}1`, `${i}2`];
       }
     }
     return false;
@@ -52,7 +59,7 @@ class Game {
         this.board[1][i] === this.board[2][i] &&
         this.board[0][i]
       ) {
-        return true;
+        return [`0${i}`, `1${i}`, `2${i}`];
       }
     }
     return false;
@@ -64,20 +71,27 @@ class Game {
       this.board[1][1] === this.board[2][2] &&
       this.board[0][0]
     ) {
-      return true;
+      return ['00', '11', '22'];
     }
     if (
       this.board[0][2] === this.board[1][1] &&
       this.board[1][1] === this.board[2][0] &&
-      this.board[0][2] !== ''
+      this.board[0][2]
     ) {
-      return true;
+      return ['02', '11', '20'];
     }
     return false;
   }
 
-  showWinner() {
-    alert(`${this.currentPlayer} Wins!`);
+  showWinner(winner) {
+    this.htmlBoard.removeEventListener('click', this.handleClick);
+    this.htmlSquares.forEach((square) => {
+      const id = square.id;
+      const player = this.currentPlayer === 'X' ? 'cross' : 'circle';
+      if (winner.includes(id)) {
+        square.classList.add(`${player}-winner`);
+      }
+    });
   }
 
   checkWinner() {
@@ -89,7 +103,24 @@ class Game {
   }
 }
 
-const game = new Game();
+const game = new Game(squares, board);
 
-board.addEventListener('click', game.handleClick.bind(game));
 turn.innerHTML = `${game.currentPlayer} turn`;
+
+var modal = document.getElementById('myModal');
+var openModalButton = document.getElementById('myBtn');
+var closeModalButton = document.getElementsByClassName('close')[0];
+
+openModalButton.onclick = () => {
+  modal.style.display = 'block';
+};
+
+closeModalButton.onclick = () => {
+  modal.style.display = 'none';
+};
+
+window.onclick = (event) => {
+  if (event.target == modal) {
+    modal.style.display = 'none';
+  }
+};
