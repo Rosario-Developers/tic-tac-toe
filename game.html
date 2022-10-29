@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles/game.css" />
+    <title>TIC TAC TOE</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="game">
+        <div class="board-row">
+          <div class="cross-circle">
+            <div class="cross">X</div>
+            <div class="circle">O</div>
+          </div>
+          <div class="turn-info"><span id="turn"></span>&nbsp;Turn</div>
+          <div class="reset-btn" id="reset">
+            <img
+              src="./public/images/refresh-svgrepo-com.svg"
+              alt="reset-icon"
+            />
+          </div>
+        </div>
+
+        <div class="board">
+          <div class="board-row">
+            <div class="square" id="00"></div>
+            <div class="square" id="01"></div>
+            <div class="square" id="02"></div>
+          </div>
+          <div class="board-row">
+            <div class="square" id="10"></div>
+            <div class="square" id="11"></div>
+            <div class="square" id="12"></div>
+          </div>
+          <div class="board-row">
+            <div class="square" id="20"></div>
+            <div class="square" id="21"></div>
+            <div class="square" id="22"></div>
+          </div>
+        </div>
+
+        <div class="board-row">
+          <div class="box cross-info" id="cross">
+            <div>X (You)</div>
+            <div>0</div>
+          </div>
+          <div class="box ties-info" id="ties">
+            <div>Ties</div>
+            <div>0</div>
+          </div>
+          <div class="box circle-info" id="circle">
+            <div>O (CPU)</div>
+            <div>0</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+      <!-- Modal content -->
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="youwon">You Won!</h4>
+          <h1 class="xwin"><span id="winner"></span> TAKES THE ROUND</h1>
+          <span class="modal-btn close">Quit</span>
+          <span class="modal-btn next-round" id="next-round-btn"
+            >Next round</span
+          >
+        </div>
+      </div>
+    </div>
+    <script src="./script.js"></script>
+  </body>
+
+</html>
